@@ -5,18 +5,48 @@ body {
 }
 
 header {
+  /* positioning */
   display: flex;
+  justify-content: space-between;
+  padding: 5px 40px;
+  border-bottom: 1px solid black;
+
+  align-items: center;
+
+  /* styling */
   font-family: Verdana;
   font-size: 14px;
   font-weight: bold;
 }
 
-.logo {
+/* .logo {
+  display: inline-flex;
   color: MediumAquamarine;
+  align-items: center;
+} */
 
+#logo {
+  display: inline-flex;
+  align-items: center;
 }
 
-.navigation {
-  display: inline-flex;
+#logo p {
+  color: MediumAquamarine;
+  padding-left: 10px;
+}
 
+#navigation {
+  display: inline-flex;
+}
+
+#navigation ul {
+  /* display: inline-block; */
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+
+#navigation li {
+  display: inline-block;
+  padding: 10px;
 }
