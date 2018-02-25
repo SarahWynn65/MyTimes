@@ -1,0 +1,22 @@
+/* Stylesheet.css for MyTimes project by Sarah Wynn Feb 2018 */
+
+body {
+
+}
+
+header {
+  display: flex;
+  font-family: Verdana;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.logo {
+  color: MediumAquamarine;
+
+}
+
+.navigation {
+  display: inline-flex;
+
+}
