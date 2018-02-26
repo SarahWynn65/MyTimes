@@ -52,12 +52,13 @@ header {
 }
 
 main: {
-  display: flex;
+  display: inline-flex;
 }
 
 .column {
-  display: flex;
-  border: 1px solid black;
+  display: inline-flex;
+  flex-direction: column;
+  border: 2px solid black;
 }
 
 .column.large {
@@ -70,4 +71,8 @@ main: {
 
 .column.small {
   width: 240px;
+}
+
+.article {
+  border: 1px dashed black;
 }
