@@ -1,18 +1,16 @@
-/* Stylesheet.css for MyTimes project by Sarah Wynn Feb 2018 with way too much help from dev-tools */
+/* Stylesheet.css for MyTimes project by Sarah Wynn Feb 2018 with a bit of help from dev-tools */
 
 body {
+  margin: 0; /* Prevents the columns in main from scrolling above the header */
 }
 
 header {
   /* positioning */
-
   display: flex;
-  padding: 5px 40px;
-  /* width: 100% */
   height: 80px;
+  width: 100%;
   border-bottom: 1px solid black;
-  align-items: center;
-  /* position: fixed; */
+  position: fixed;
   background-color: white;
 
   /* styling */
@@ -22,8 +20,9 @@ header {
 }
 
 #logo {
-  display: flex;
-  align-items: center;
+  display: flex; /* This is supposed to be a flex-item, not a flex-container, but then the "My Times" part of the logo won't center vertically. */
+  text-align: center;
+  align-items: center; /* Centers text vertically. */
   flex-grow: 1;
   padding-left: 30px;
 }
@@ -47,24 +46,28 @@ header {
   padding: 20px 10px;
 }
 
+/* major axis horizontal */
 main {
-  /* display: inline-flex;
-  flex-direction: column; */
-  display: flex;
-  width: 1200px;
+  display: flex; /* Task 3 So that main can respond to changes in browser size. */
+  max-width: 1200px;
   margin 0 auto 80px auto;
 }
 
 .column {
-  display: flex;
-  flex-direction: column;
-  margin-right: 32px;
-  border: 2px solid black;
+  display: inline-flex; /* Columns can appear side by side, as will the child items if there is enough room. */
+  justify-content: space-between;
+  align-items: baseline; /* Cross axis currently vertical so this keeps column contents towards top of column. */
+  flex-wrap: wrap; /* This allows column contents to be wrapped. */
+  align-content: flex-start; /* Modifies the way the items are wrapped. */
+  padding-top: 70px; /* Prevents column contents from disappearing behind the header. */
+  border: 2px solid black; /* Temporary border to help show article boundaries. */
 }
 
+/* Task 3. Set width of each column. */
 .column.large {
   width: 630px;
-  margin: 20px;
+  margin: 20px 20px 20px 0px;
+  align-content: space-between;
 }
 
 .column.medium {
@@ -77,36 +80,78 @@ main {
   margin: 20px;
 }
 
+/* turn major axis horizontal with flex-direction */
 .article {
+  /* display: flex; */ /* Task 5. */
+  padding-top: 15px;
   border: 1px dashed black;
+}
+
+/* Styling for Main heading. */
+h1 {
+  font-size: 40px;
+  text-align: left;
+  color: white;
+}
+
+/* Basic styling for non-main headings with background-image. */
+h2 {
+  display: flex;
+  font-family: Georgia;
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+  text-align: center; /* Step 8. Centers each line horizontally. */
+  align-items: center; /* Step 8. Centers text vertically. */
+}
+
+/* Basic styling for headings with NO background image; demonstration says 24px; */
+h3 {
+  font-family: Georgia;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* This is the text of the article. Instructions say 'Georgia', demonstration says 'Times' */
+p {
+  font-family: Times;
+  font-size: 17px;
+  color: black;
+}
+
+/* Styling for individual article, image, and heading divs. */
+#article2, #article3 {
+  max-width: 270px; /* Specifying the width of the articles stops them from expanding to fill the column and allows them to wrap. */
 }
 
 #wine-table {
   background-image: url("https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-4/img-story-main.png");
-  color: white;
+  background-color: beige;
   height: 300px;
+  width: 100%;
 }
 
 #Earth-Spins {
   background-image: url("https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-4/img-story-2.png");
-  color: white;
+  background-color: beige;
   height: 300px;
 }
 
-#Cat {
+#cat {
   background-image: url("https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-4/img-story-1.png");
-  color: white;
+  background-color: beige;
   height: 300px;
 }
 
 #cameraman {
   background-image: url("https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-4/img-story-3.png");
-  color: white;
+  background-color: beige;
   height: 300px;
 }
 
 #bite {
   background-image: url("https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-4/img-news-bite.png");
-  height: 200px;
   background-color: beige;
+  height: 240px;
+  width: 240px; /* Width specified to allow background-image space to exist. */
 }
