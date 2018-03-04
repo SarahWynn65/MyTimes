@@ -20,7 +20,7 @@ header {
 }
 
 #logo {
-  display: flex; /* The instruction say this is a flex item, but declaring #logo as a flex container allows us to center the text vertically. */
+  display: flex; /* The instruction say this is a flex item, but declaring #logo as a flex container allows us to easily center the text vertically. */
   align-items: center; /* Centers text vertically. */
   flex-grow: 1;
   padding-left: 30px;
@@ -36,11 +36,11 @@ header {
   color: MediumAquamarine;
 }
 
-#navigation ul {
+.navigation ul {
   list-style-type: none;
 }
 
-#navigation li {
+.navigation li {
   display: inline-block;
   padding: 20px 10px;
 }
@@ -49,7 +49,7 @@ header {
 main {
   display: flex; /* Task 3: So that main can respond to changes in browser size. */
   max-width: 1200px;
-  margin 0 auto 80px auto;
+  margin: 0 auto; /* Pushes the columns towards the center of the page. */
 }
 
 .column {
@@ -58,7 +58,7 @@ main {
   flex-wrap: wrap; /* This allows column contents to be wrapped. */
   align-content: flex-start; /* Keeps the articles towards the top of their columns. Most noticable in partially filled columns. */
   padding-top: 70px; /* Prevents column contents from being permanently hidden behind the header. */
-  /* border: 2px solid black;*/ /* Temporary border to help show column boundaries. */
+  /* border: 2px solid black; */ /* Temporary border to help show column boundaries. */
 }
 
 /* Task 3. Set width of each column. */
@@ -75,9 +75,8 @@ main {
 .column.small {
   width: 240px;
   margin: 20px;
-  /* flex-direction: column; */ /* Step 6, though if the news-bites are <p> rather than <span>, all columns can be left as flex-direction: row; */
+  /* flex-direction: column; */ /* Step 6, though if the news-bites are <p> rather than <span>, ALL columns can be left as flex-direction: row; and the news-bites space properly. */
   justify-content: flex-start; /* Step 6 */
-  /* margin: 0px; */
 }
 
 .article {
@@ -87,9 +86,12 @@ main {
 
 /* Styling for Main heading. */
 h1 {
+  display: flex;
   font-size: 40px;
-  text-align: left;
   color: white;
+  align-items: center; /* Centers text vertically. */
+  padding-left: 30px; /* Keeps text away from left side of background. */
+  padding-right: 30px; /* Keeps text away from right side of background. */
 }
 
 /* Basic styling for non-main headings with background-image. */
@@ -101,6 +103,8 @@ h2 {
   color: white;
   text-align: center; /* Step 8. Centers each line horizontally. */
   align-items: center; /* Step 8. Centers text vertically. */
+  padding-left: 10px; /* Keeps the text away from the edge of the background. */
+  padding-right: 10px; /* Keeps the text away from the edge of the background. */
 }
 
 /* Basic styling for headings with NO background image; demonstration says 24px; */
@@ -126,7 +130,6 @@ p {
   background-image: url("https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-4/img-story-main.png");
   background-color: beige;
   height: 300px;
-  width: 100%;
 }
 
 #Earth-Spins {
@@ -157,6 +160,7 @@ p {
 #news-bites { /* Step 6 */
   font-size: 16px;
   font-weight: bold;
+  text-align: center;
 }
 
 #bite-list p { /* Task 6 Using <p> rather than <span> makes the spacing of the news bites much easier. */
@@ -171,5 +175,33 @@ p {
   font-family: Verdana;
   font-size: 12px;
   color: DimGray;
+}
 
+/* Task 7 */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 325px;
+  background-color: MediumAquamarine;
+  margin: auto;
+  font-family: Verdana;
+  font-size: 12px;
+}
+
+.info .title {
+  display: inline-block;
+  padding-right: 25px;
+  border-right: 2px solid white;
+  font-family: Georgia;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.info nav {
+  display: inline-block;
+  /* padding: 20px 10px; */
 }
