@@ -1,7 +1,7 @@
 /* Stylesheet.css for MyTimes project by Sarah Wynn Feb 2018 with a bit of help from dev-tools */
 
 body {
-  margin: 0; /* Prevents the columns in main from scrolling above the header */
+  margin: 0; /* Prevents the columns in main from appearing to scroll above the header */
 }
 
 header {
@@ -20,8 +20,7 @@ header {
 }
 
 #logo {
-  display: flex; /* This is supposed to be a flex-item, not a flex-container, but then the "My Times" part of the logo won't center vertically. */
-  text-align: center;
+  display: flex; /* The instruction say this is a flex item, but declaring #logo as a flex container allows us to center the text vertically. */
   align-items: center; /* Centers text vertically. */
   flex-grow: 1;
   padding-left: 30px;
@@ -48,26 +47,24 @@ header {
 
 /* major axis horizontal */
 main {
-  display: flex; /* Task 3 So that main can respond to changes in browser size. */
+  display: flex; /* Task 3: So that main can respond to changes in browser size. */
   max-width: 1200px;
   margin 0 auto 80px auto;
 }
 
 .column {
   display: inline-flex; /* Columns can appear side by side, as will the child items if there is enough room. */
-  justify-content: space-between;
-  align-items: baseline; /* Cross axis currently vertical so this keeps column contents towards top of column. */
+  justify-content: space-between; /* This spaces the articles which appear side by side in the column. */
   flex-wrap: wrap; /* This allows column contents to be wrapped. */
-  align-content: flex-start; /* Modifies the way the items are wrapped. */
-  padding-top: 70px; /* Prevents column contents from disappearing behind the header. */
-  border: 2px solid black; /* Temporary border to help show article boundaries. */
+  align-content: flex-start; /* Keeps the articles towards the top of their columns. Most noticable in partially filled columns. */
+  padding-top: 70px; /* Prevents column contents from being permanently hidden behind the header. */
+  /* border: 2px solid black;*/ /* Temporary border to help show column boundaries. */
 }
 
 /* Task 3. Set width of each column. */
 .column.large {
   width: 630px;
   margin: 20px 20px 20px 0px;
-  align-content: space-between;
 }
 
 .column.medium {
@@ -78,13 +75,14 @@ main {
 .column.small {
   width: 240px;
   margin: 20px;
+  /* flex-direction: column; */ /* Step 6, though if the news-bites are <p> rather than <span>, all columns can be left as flex-direction: row; */
+  justify-content: flex-start; /* Step 6 */
+  /* margin: 0px; */
 }
 
-/* turn major axis horizontal with flex-direction */
 .article {
-  /* display: flex; */ /* Task 5. */
-  padding-top: 15px;
-  border: 1px dashed black;
+  padding-top: 5px;
+  /* border: 1px dashed black; */ /* Temporary border to help show article boundaries. */
 }
 
 /* Styling for Main heading. */
@@ -149,9 +147,29 @@ p {
   height: 300px;
 }
 
-#bite {
+#cookie {
   background-image: url("https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-4/img-news-bite.png");
   background-color: beige;
   height: 240px;
   width: 240px; /* Width specified to allow background-image space to exist. */
+}
+
+#news-bites { /* Step 6 */
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#bite-list p { /* Task 6 Using <p> rather than <span> makes the spacing of the news bites much easier. */
+  /* positioning */
+  padding: 11px 20px;
+  margin: 0px;
+
+  /* style */
+  border-bottom: 1px solid black;
+  /* border-top: 1px solid black; */ /* The instructions specify a top border, but the demonstration neglects it. */
+  background-color: WhiteSmoke;
+  font-family: Verdana;
+  font-size: 12px;
+  color: DimGray;
+
 }
